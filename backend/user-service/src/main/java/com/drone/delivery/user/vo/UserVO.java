@@ -1,33 +1,28 @@
-package com.drone.delivery.user.entity;
+package com.drone.delivery.user.vo;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.drone.delivery.common.entity.BaseEntity;
 import com.drone.delivery.common.enums.UserType;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import java.time.LocalDateTime;
 
 /**
- * 用户实体类
+ * 用户信息VO
  *
  * @author drone-delivery
  * @since 1.0.0
  */
 @Data
-@EqualsAndHashCode(callSuper = true)
-@TableName("user")
-public class User extends BaseEntity {
+public class UserVO {
+
+    /**
+     * 用户ID
+     */
+    private Long id;
 
     /**
      * 用户名
      */
     private String username;
-
-    /**
-     * 密码
-     */
-    private String password;
 
     /**
      * 昵称
@@ -55,9 +50,29 @@ public class User extends BaseEntity {
     private UserType userType;
 
     /**
+     * 用户类型描述
+     */
+    private String userTypeDesc;
+
+    /**
      * 状态：0-禁用，1-启用
      */
     private Integer status;
+
+    /**
+     * 状态描述
+     */
+    private String statusDesc;
+
+    /**
+     * 创建时间
+     */
+    private LocalDateTime createTime;
+
+    /**
+     * 更新时间
+     */
+    private LocalDateTime updateTime;
 
     /**
      * 最后登录时间
