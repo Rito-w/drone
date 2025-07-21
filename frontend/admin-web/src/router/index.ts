@@ -54,6 +54,7 @@ const router = createRouter({
               component: () => import('@/views/order/OrderStatistics.vue'),
               meta: {
                 title: '订单统计',
+                icon: 'DataAnalysis',
                 requiresAuth: true
               }
             }
@@ -65,6 +66,7 @@ const router = createRouter({
           redirect: '/user/list',
           meta: {
             title: '用户管理',
+            icon: 'User',
             requiresAuth: true
           },
           children: [
@@ -74,15 +76,17 @@ const router = createRouter({
               component: () => import('@/views/user/UserList.vue'),
               meta: {
                 title: '用户列表',
+                icon: 'UserFilled',
                 requiresAuth: true
               }
             },
             {
               path: 'pilot',
-              name: 'PilotList',
-              component: () => import('@/views/user/PilotList.vue'),
+              name: 'PilotManagement',
+              component: () => import('@/views/user/PilotManagement.vue'),
               meta: {
                 title: '飞手管理',
+                icon: 'Avatar',
                 requiresAuth: true
               }
             }
@@ -90,19 +94,21 @@ const router = createRouter({
         },
         {
           path: 'map',
-          name: 'Map',
-          component: () => import('@/views/Map.vue'),
+          name: 'MapMonitor',
+          component: () => import('@/views/MapMonitor.vue'),
           meta: {
             title: '地图监控',
+            icon: 'Location',
             requiresAuth: true
           }
         },
         {
           path: 'payment',
-          name: 'Payment',
-          component: () => import('@/views/Payment.vue'),
+          name: 'PaymentManagement',
+          component: () => import('@/views/payment/PaymentManagement.vue'),
           meta: {
             title: '支付管理',
+            icon: 'CreditCard',
             requiresAuth: true
           }
         },
@@ -112,6 +118,7 @@ const router = createRouter({
           redirect: '/system/config',
           meta: {
             title: '系统管理',
+            icon: 'Setting',
             requiresAuth: true
           },
           children: [
@@ -121,21 +128,32 @@ const router = createRouter({
               component: () => import('@/views/system/SystemConfig.vue'),
               meta: {
                 title: '系统配置',
+                icon: 'Tools',
                 requiresAuth: true
               }
             },
             {
               path: 'log',
-              name: 'SystemLog',
-              component: () => import('@/views/system/SystemLog.vue'),
+              name: 'OperationLog',
+              component: () => import('@/views/system/OperationLog.vue'),
               meta: {
                 title: '操作日志',
+                icon: 'Document',
                 requiresAuth: true
               }
             }
           ]
         }
       ]
+    },
+    {
+      path: '/404',
+      name: '404',
+      component: () => import('@/views/404.vue'),
+      meta: {
+        title: '404',
+        hidden: true
+      }
     },
     {
       path: '/:pathMatch(.*)*',
